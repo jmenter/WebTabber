@@ -1,0 +1,348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6358C3F52675418700AC7471 /* NSImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358C3F42675418700AC7471 /* NSImage+Extras.m */; };
+		635B59972673FECE0029F8C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 635B59962673FECE0029F8C5 /* AppDelegate.m */; };
+		635B599A2673FECE0029F8C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635B59992673FECE0029F8C5 /* ViewController.m */; };
+		635B599C2673FED00029F8C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 635B599B2673FED00029F8C5 /* Assets.xcassets */; };
+		635B599F2673FED00029F8C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 635B599D2673FED00029F8C5 /* Main.storyboard */; };
+		635B59A22673FED00029F8C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 635B59A12673FED00029F8C5 /* main.m */; };
+		635B59AD26740A770029F8C5 /* WebViewTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635B59AC26740A770029F8C5 /* WebViewTabController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6358C3F32675418700AC7471 /* NSImage+Extras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+Extras.h"; sourceTree = "<group>"; };
+		6358C3F42675418700AC7471 /* NSImage+Extras.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Extras.m"; sourceTree = "<group>"; };
+		635B59922673FECE0029F8C5 /* Tabber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tabber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		635B59952673FECE0029F8C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		635B59962673FECE0029F8C5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		635B59982673FECE0029F8C5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		635B59992673FECE0029F8C5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		635B599B2673FED00029F8C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		635B599E2673FED00029F8C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		635B59A02673FED00029F8C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		635B59A12673FED00029F8C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		635B59A32673FED00029F8C5 /* Tabber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tabber.entitlements; sourceTree = "<group>"; };
+		635B59AB26740A770029F8C5 /* WebViewTabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewTabController.h; sourceTree = "<group>"; };
+		635B59AC26740A770029F8C5 /* WebViewTabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewTabController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		635B598F2673FECE0029F8C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		635B59892673FECE0029F8C5 = {
+			isa = PBXGroup;
+			children = (
+				635B59942673FECE0029F8C5 /* Tabber */,
+				635B59932673FECE0029F8C5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		635B59932673FECE0029F8C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				635B59922673FECE0029F8C5 /* Tabber.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		635B59942673FECE0029F8C5 /* Tabber */ = {
+			isa = PBXGroup;
+			children = (
+				635B59952673FECE0029F8C5 /* AppDelegate.h */,
+				635B59962673FECE0029F8C5 /* AppDelegate.m */,
+				635B59982673FECE0029F8C5 /* ViewController.h */,
+				635B59992673FECE0029F8C5 /* ViewController.m */,
+				635B59AB26740A770029F8C5 /* WebViewTabController.h */,
+				635B59AC26740A770029F8C5 /* WebViewTabController.m */,
+				6358C3F32675418700AC7471 /* NSImage+Extras.h */,
+				6358C3F42675418700AC7471 /* NSImage+Extras.m */,
+				635B599B2673FED00029F8C5 /* Assets.xcassets */,
+				635B599D2673FED00029F8C5 /* Main.storyboard */,
+				635B59A02673FED00029F8C5 /* Info.plist */,
+				635B59A12673FED00029F8C5 /* main.m */,
+				635B59A32673FED00029F8C5 /* Tabber.entitlements */,
+			);
+			path = Tabber;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		635B59912673FECE0029F8C5 /* Tabber */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 635B59A62673FED00029F8C5 /* Build configuration list for PBXNativeTarget "Tabber" */;
+			buildPhases = (
+				635B598E2673FECE0029F8C5 /* Sources */,
+				635B598F2673FECE0029F8C5 /* Frameworks */,
+				635B59902673FECE0029F8C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tabber;
+			productName = Tabber;
+			productReference = 635B59922673FECE0029F8C5 /* Tabber.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		635B598A2673FECE0029F8C5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					635B59912673FECE0029F8C5 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 635B598D2673FECE0029F8C5 /* Build configuration list for PBXProject "Tabber" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 635B59892673FECE0029F8C5;
+			productRefGroup = 635B59932673FECE0029F8C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				635B59912673FECE0029F8C5 /* Tabber */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		635B59902673FECE0029F8C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				635B599C2673FED00029F8C5 /* Assets.xcassets in Resources */,
+				635B599F2673FED00029F8C5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		635B598E2673FECE0029F8C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				635B599A2673FECE0029F8C5 /* ViewController.m in Sources */,
+				635B59AD26740A770029F8C5 /* WebViewTabController.m in Sources */,
+				635B59A22673FED00029F8C5 /* main.m in Sources */,
+				6358C3F52675418700AC7471 /* NSImage+Extras.m in Sources */,
+				635B59972673FECE0029F8C5 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		635B599D2673FED00029F8C5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				635B599E2673FED00029F8C5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		635B59A42673FED00029F8C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		635B59A52673FED00029F8C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		635B59A72673FED00029F8C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tabber/Tabber.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = H8KMXW4VV4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Tabber/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffmenter.Tabber;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		635B59A82673FED00029F8C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tabber/Tabber.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = H8KMXW4VV4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Tabber/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffmenter.Tabber;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		635B598D2673FECE0029F8C5 /* Build configuration list for PBXProject "Tabber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				635B59A42673FED00029F8C5 /* Debug */,
+				635B59A52673FED00029F8C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		635B59A62673FED00029F8C5 /* Build configuration list for PBXNativeTarget "Tabber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				635B59A72673FED00029F8C5 /* Debug */,
+				635B59A82673FED00029F8C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 635B598A2673FECE0029F8C5 /* Project object */;
+}
