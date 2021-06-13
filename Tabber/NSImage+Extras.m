@@ -1,31 +1,31 @@
 
 #import "NSImage+Extras.h"
+@import Accelerate;
 
 @implementation NSImage (Extras)
 
 - (NSImage *)resizedTo:(NSSize)newSize;
 {
-    NSBitmapImageRep *rep = [[NSBitmapImageRep alloc]
-              initWithBitmapDataPlanes:NULL
-                            pixelsWide:newSize.width
-                            pixelsHigh:newSize.height
-                         bitsPerSample:8
-                       samplesPerPixel:4
-                              hasAlpha:YES
-                              isPlanar:NO
-                        colorSpaceName:NSCalibratedRGBColorSpace
-                           bytesPerRow:0
-                          bitsPerPixel:0];
-    rep.size = newSize;
-    [NSGraphicsContext saveGraphicsState];
-    [NSGraphicsContext setCurrentContext:[NSGraphicsContext graphicsContextWithBitmapImageRep:rep]];
-    NSGraphicsContext.currentContext.imageInterpolation = NSImageInterpolationHigh;
-    [self drawInRect:NSMakeRect(0, 0, newSize.width, newSize.height)
-            fromRect:NSZeroRect operation:NSCompositingOperationCopy fraction:1.0];
-    [NSGraphicsContext restoreGraphicsState];
+    CGImageRef image = [self CGImageForProposedRect:nil context:nil hints:nil];
 
-    NSImage *newImage = [[NSImage alloc] initWithSize:newSize];
-    [newImage addRepresentation:rep];
+    vImage_Error error;
+    vImage_Buffer source;
+
+    vImage_CGImageFormat imageFormat = {(uint32_t)CGImageGetBitsPerComponent(image), (uint32_t)CGImageGetBitsPerPixel(image), CGImageGetColorSpace(image), CGImageGetBitmapInfo(image), 0, NULL, kCGRenderingIntentDefault};
+
+    vImageBuffer_InitWithCGImage(&source, &imageFormat, NULL, image, kvImageNoFlags);
+    vImage_Buffer destination;
+
+    vImageBuffer_Init(&destination, newSize.height, newSize.width, (uint32_t)CGImageGetBitsPerPixel(image), kvImageNoFlags);
+
+    error = vImageScale_ARGB8888(&source, &destination, NULL, kvImageHighQualityResampling);
+
+    CGImageRef outImage = vImageCreateCGImageFromBuffer(&destination, &imageFormat, NULL, NULL, kvImageNoFlags, &error);
+    NSImage *newImage = [[NSImage alloc] initWithCGImage:outImage size:newSize];
+    CGImageRelease(outImage);
+    free(source.data);
+    free(destination.data);
+    
     return newImage;
 }
 

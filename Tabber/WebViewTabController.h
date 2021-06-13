@@ -3,7 +3,7 @@
 @import WebKit;
 
 @protocol WebViewTabControllerDelegate <NSObject>
-- (void)tabControllerDidTakeSnapshot:(NSImage *)snapshot;
+- (void)tabControllerDidCreateThumbnail:(NSImage *)thumbnail;
 - (void)webViewDidFinishLoading;
 @end
 
@@ -13,12 +13,13 @@
 @property (readonly) NSView *webView;
 @property (readonly) NSURL *url;
 @property NSRect webViewFrame;
-@property (nonatomic) NSImage *lastSnapshotImage;
+@property NSSize thumbnailImageSize;
+@property (nonatomic) NSImage *lastThumbnailImage;
 
 - (instancetype)initWithDelegate:(id<WebViewTabControllerDelegate>)delegate;
 
 - (void)loadUrl:(NSURL *)url;
-- (void)requestSnapshot;
+- (void)requestThumbnail;
 
 @end
 

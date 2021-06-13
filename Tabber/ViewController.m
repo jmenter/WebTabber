@@ -1,7 +1,6 @@
 
 #import "ViewController.h"
 #import "WebViewTabController.h"
-#import "NSImage+Extras.h"
 
 @import WebKit;
 
@@ -22,8 +21,8 @@
     [self.tabs addObject:[WebViewTabController.alloc initWithDelegate:self]];
     [self.webViewSuperView addSubview:self.tabs[0].webView];
     self.tabs[self.selectedTab].webView.frame = self.webViewSuperView.bounds;
-    [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [self.tabs[self.selectedTab] requestSnapshot];
+    [NSTimer scheduledTimerWithTimeInterval:.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        [self.tabs[self.selectedTab] requestThumbnail];
     }];
 }
 
@@ -58,7 +57,7 @@
 {
     for (WebViewTabController *controller in self.tabs) {
         controller.webView.frame = self.webViewSuperView.bounds;
-        [controller requestSnapshot];
+        [controller requestThumbnail];
     }
 }
 
@@ -75,7 +74,7 @@
         return [NSImage imageNamed:@"add"];
     }
 
-    return [self.tabs[row].lastSnapshotImage resizedTo:NSMakeSize(119 * 2, 68 * 2)];
+    return self.tabs[row].lastThumbnailImage;
 }
 
 #pragma mark - NSTableViewDelegate
@@ -91,7 +90,7 @@
 
 #pragma mark - WebViewTabControllerDelegate
 
-- (void)tabControllerDidTakeSnapshot:(NSImage *)snapshot;
+- (void)tabControllerDidCreateThumbnail:(NSImage *)thumbnail;
 {
     [self.tableView reloadData];
 }
