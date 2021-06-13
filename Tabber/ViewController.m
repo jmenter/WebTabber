@@ -56,6 +56,9 @@
 - (void)updateWebviewPreviews;
 {
     for (WebViewTabController *controller in self.tabs) {
+        CGFloat maxWidth = kBaseWidth - 8;
+        CGFloat aspectRatio = self.webViewSuperView.bounds.size.width / self.webViewSuperView.bounds.size.height;
+        controller.thumbnailImageSize = NSMakeSize(maxWidth * 2, (maxWidth / aspectRatio) * 2);
         controller.webView.frame = self.webViewSuperView.bounds;
         [controller requestThumbnail];
     }
@@ -66,6 +69,14 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
 {
     return self.tabs.count + 1;
+}
+
+static const CGFloat kBaseWidth = 150;
+
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row;
+{
+    CGFloat aspectRatio = self.webViewSuperView.bounds.size.width / self.webViewSuperView.bounds.size.height;
+    return kBaseWidth / aspectRatio;
 }
 
 - (nullable id)tableView:(NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row;
