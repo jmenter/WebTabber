@@ -21,9 +21,18 @@
     [self.tabs addObject:[WebViewTabController.alloc initWithDelegate:self]];
     [self.webViewSuperView addSubview:self.tabs[0].webView];
     self.tabs[self.selectedTab].webView.frame = self.webViewSuperView.bounds;
+    self.tabs[self.selectedTab].thumbnailImageSize = self.optimalThumbnailSize;
+
     [NSTimer scheduledTimerWithTimeInterval:.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
         [self.tabs[self.selectedTab] requestThumbnail];
     }];
+}
+
+- (NSSize)optimalThumbnailSize;
+{
+    CGFloat maxWidth = kBaseWidth - 4;
+    CGFloat aspectRatio = self.webViewSuperView.bounds.size.width / self.webViewSuperView.bounds.size.height;
+    return NSMakeSize(maxWidth * 2, (maxWidth / aspectRatio) * 2);
 }
 
 - (void)viewDidLayout;
@@ -50,15 +59,17 @@
 
 - (IBAction)addressWasEntered:(NSTextField *)sender;
 {
-    [self.selectedTabController loadUrl:[NSURL URLWithString:sender.stringValue]];
+    NSString *value = sender.stringValue;
+    if (![value hasPrefix:@"http"]) {
+        value = [NSString stringWithFormat:@"https://%@", value];
+    }
+    [self.selectedTabController loadUrl:[NSURL URLWithString:value]];
 }
 
 - (void)updateWebviewPreviews;
 {
     for (WebViewTabController *controller in self.tabs) {
-        CGFloat maxWidth = kBaseWidth - 8;
-        CGFloat aspectRatio = self.webViewSuperView.bounds.size.width / self.webViewSuperView.bounds.size.height;
-        controller.thumbnailImageSize = NSMakeSize(maxWidth * 2, (maxWidth / aspectRatio) * 2);
+        controller.thumbnailImageSize = self.optimalThumbnailSize;
         controller.webView.frame = self.webViewSuperView.bounds;
         [controller requestThumbnail];
     }
@@ -96,6 +107,7 @@ static const CGFloat kBaseWidth = 150;
         [self.tabs addObject:[WebViewTabController.alloc initWithDelegate:self]];
     }
     [self selectTab:self.tableView.selectedRow];
+    self.selectedTabController.thumbnailImageSize = self.optimalThumbnailSize;
     [self.tableView reloadData];
 }
 
