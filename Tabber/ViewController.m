@@ -22,7 +22,7 @@
     [self.tabs addObject:[WebViewTabController.alloc initWithDelegate:self]];
     [self.webViewSuperView addSubview:self.tabs.firstObject.webView];
     self.tabs[self.selectedTab].webView.frame = self.webViewSuperView.bounds;
-    self.tabs[self.selectedTab].thumbnailImageSize = self.optimalThumbnailSize;
+    self.tabs[self.selectedTab].preferredThumbnailImageSize = self.optimalThumbnailSize;
 }
 
 - (NSSize)optimalThumbnailSize;
@@ -65,7 +65,7 @@
 - (void)updateWebviewPreviews;
 {
     for (WebViewTabController *controller in self.tabs) {
-        controller.thumbnailImageSize = self.optimalThumbnailSize;
+        controller.preferredThumbnailImageSize = self.optimalThumbnailSize;
         controller.webView.frame = self.webViewSuperView.bounds;
         [controller requestThumbnail];
     }
@@ -109,7 +109,7 @@ static const CGFloat kBaseWidth = 150;
         [self.tabs addObject:[WebViewTabController.alloc initWithDelegate:self]];
     }
     [self selectTab:self.tableView.selectedRow];
-    self.selectedTabController.thumbnailImageSize = self.optimalThumbnailSize;
+    self.selectedTabController.preferredThumbnailImageSize = self.optimalThumbnailSize;
     if (addWasSelected) {
         [self.tableView reloadData];
     }

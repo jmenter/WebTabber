@@ -21,16 +21,9 @@
     eeView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     [self.myWebView addSubview:eeView];
     self.myWebView.navigationDelegate = self;
-    self.thumbnailImageSize = NSMakeSize(119 * 2, 68 * 2);
+    self.preferredThumbnailImageSize = NSMakeSize(119 * 2, 68 * 2);
 
     return self;
-}
-
-#pragma mark - ScrollEventDelegate
-
-- (void)scrollDidEnd;
-{
-    [self requestThumbnail];
 }
 
 - (instancetype)initWithDelegate:(id<WebViewTabControllerDelegate>)delegate;
@@ -47,7 +40,7 @@
     config.afterScreenUpdates = NO;
     [self.myWebView takeSnapshotWithConfiguration:config
                                 completionHandler:^(NSImage * _Nullable snapshotImage, NSError * _Nullable error) {
-        self.lastThumbnailImage = [snapshotImage resizedTo:self.thumbnailImageSize];
+        self.lastThumbnailImage = [snapshotImage resizedTo:self.preferredThumbnailImageSize];
         [self.delegate tabController:self didCreateThumbnail:self.lastThumbnailImage];
     }];
 }
@@ -75,6 +68,13 @@
 - (NSURL *)url;
 {
     return self.myWebView.URL.absoluteURL;
+}
+
+#pragma mark - ScrollEventDelegate
+
+- (void)scrollDidEnd;
+{
+    [self requestThumbnail];
 }
 
 #pragma mark - WKNavigationDelegate

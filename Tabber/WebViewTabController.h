@@ -14,8 +14,7 @@
 @property (weak, nonatomic) id<WebViewTabControllerDelegate> delegate;
 @property (readonly) NSView *webView;
 @property (readonly) NSURL *url;
-@property NSRect webViewFrame;
-@property NSSize thumbnailImageSize;
+@property NSSize preferredThumbnailImageSize;
 @property (nonatomic) NSImage *lastThumbnailImage;
 
 - (instancetype)initWithDelegate:(id<WebViewTabControllerDelegate>)delegate;
