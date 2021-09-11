@@ -23,7 +23,20 @@
     self.myWebView.navigationDelegate = self;
     self.preferredThumbnailImageSize = NSMakeSize(119 * 2, 68 * 2);
 
+    [self.myWebView addObserver:self
+                     forKeyPath:@"estimatedProgress"
+                        options:NSKeyValueObservingOptionNew
+                        context:nil];
     return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(void *)context;
+{
+    [self.delegate webViewControllerDidLoadAmount:self.myWebView.estimatedProgress];
+    [self requestThumbnail];
 }
 
 - (instancetype)initWithDelegate:(id<WebViewTabControllerDelegate>)delegate;
@@ -36,12 +49,18 @@
 
 - (void)requestThumbnail;
 {
+    static BOOL isRequestingThumbnail = NO;
+    if (isRequestingThumbnail) {
+        return;
+    }
+    isRequestingThumbnail = YES;
     WKSnapshotConfiguration *config = WKSnapshotConfiguration.new;
     config.afterScreenUpdates = NO;
     [self.myWebView takeSnapshotWithConfiguration:config
                                 completionHandler:^(NSImage * _Nullable snapshotImage, NSError * _Nullable error) {
         self.lastThumbnailImage = [snapshotImage resizedTo:self.preferredThumbnailImageSize];
         [self.delegate tabController:self didCreateThumbnail:self.lastThumbnailImage];
+        isRequestingThumbnail = NO;
     }];
 }
 
@@ -73,6 +92,11 @@
 #pragma mark - ScrollEventDelegate
 
 - (void)scrollDidEnd;
+{
+    [self requestThumbnail];
+}
+
+- (void)scrollIsHappening;
 {
     [self requestThumbnail];
 }

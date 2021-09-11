@@ -2,7 +2,8 @@
 @import Cocoa;
 
 @protocol ScrollEventDelegate <NSObject>
--(void)scrollDidEnd;
+- (void)scrollIsHappening;
+- (void)scrollDidEnd;
 @end
 
 @interface ScrollEventInterceptorView : NSView

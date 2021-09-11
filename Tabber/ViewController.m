@@ -10,6 +10,7 @@
 @property (weak) IBOutlet NSTextField *addressField;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (nonatomic) NSMutableArray <WebViewTabController *> *tabs;
+@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 @property (nonatomic) NSUInteger selectedTab;
 @end
 
@@ -88,7 +89,7 @@ static const CGFloat kBaseWidth = 150;
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row;
 {
-    return kBaseWidth / self.webViewSuperView.aspectRatio;
+    return row == self.tabs.count ? 80 : kBaseWidth / self.webViewSuperView.aspectRatio;
 }
 
 - (nullable id)tableView:(NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row;
@@ -107,6 +108,7 @@ static const CGFloat kBaseWidth = 150;
     BOOL addWasSelected = self.tableView.selectedRow == self.tabs.count;
     if (addWasSelected) {
         [self.tabs addObject:[WebViewTabController.alloc initWithDelegate:self]];
+        self.progressIndicator.doubleValue = 0;
     }
     [self selectTab:self.tableView.selectedRow];
     self.selectedTabController.preferredThumbnailImageSize = self.optimalThumbnailSize;
@@ -120,6 +122,11 @@ static const CGFloat kBaseWidth = 150;
 - (void)tabController:(WebViewTabController *)controller didCreateThumbnail:(NSImage *)thumbnail;
 {
     [self.tableView reloadData];
+}
+
+- (void)webViewControllerDidLoadAmount:(CGFloat)amount;
+{
+    self.progressIndicator.doubleValue = amount * 100;
 }
 
 - (void)webViewControllerDidFinishLoading:(WebViewTabController *)controller;

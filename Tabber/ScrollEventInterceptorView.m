@@ -8,6 +8,7 @@
     if (event.phase == NSEventPhaseEnded || event.momentumPhase == NSEventPhaseEnded) {
         [self.scrollEventDelegate scrollDidEnd];
     }
+    [self.scrollEventDelegate scrollIsHappening];
     [self.nextResponder scrollWheel:event];
 }
 

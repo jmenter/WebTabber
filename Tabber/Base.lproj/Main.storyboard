@@ -764,7 +764,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IQI-u5-Glh">
-                                                <rect key="frame" x="0.0" y="249" width="350" height="21"/>
+                                                <rect key="frame" x="29" y="245" width="317" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="enter a url" drawsBackground="YES" id="gy8-Wh-kzD">
                                                     <font key="font" usesAppearanceFont="YES"/>
@@ -776,9 +776,13 @@
                                                 </connections>
                                             </textField>
                                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HG5-aB-bE3">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="250"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="241"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </customView>
+                                            <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="HSq-PQ-myU">
+                                                <rect key="frame" x="6" y="247" width="16" height="16"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            </progressIndicator>
                                         </subviews>
                                     </customView>
                                 </subviews>
@@ -794,6 +798,7 @@
                     </view>
                     <connections>
                         <outlet property="addressField" destination="IQI-u5-Glh" id="dBf-Nv-Dib"/>
+                        <outlet property="progressIndicator" destination="HSq-PQ-myU" id="q77-6e-jmb"/>
                         <outlet property="tableView" destination="rSF-5e-9at" id="uFD-yD-bbl"/>
                         <outlet property="webViewSuperView" destination="HG5-aB-bE3" id="3Xe-iq-TQO"/>
                     </connections>

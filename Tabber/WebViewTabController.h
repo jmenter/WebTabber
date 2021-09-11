@@ -6,6 +6,7 @@
 @protocol WebViewTabControllerDelegate <NSObject>
 @optional
 - (void)tabController:(WebViewTabController *)controller didCreateThumbnail:(NSImage *)thumbnail;
+- (void)webViewControllerDidLoadAmount:(CGFloat)amount;
 - (void)webViewControllerDidFinishLoading:(WebViewTabController *)controller;
 @end
 
