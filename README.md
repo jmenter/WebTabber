@@ -8,5 +8,6 @@ Fast forward to now, and displays are much higher resolution, computers are much
 Some thoughts on what might help:
 * The preview tabs should be as "live" as possible. So any changes to the frame of the webview should trigger a redraw of the previews (including changes induced via scrolling the web page.) This should be done in such a way where it incurs as little CPU overhead as possible.
 * Like other browsers, the previews should be able to be moved (and copied with option key); in order within the same window, to other windows, etc.
-
+* The previews that are generated should be high quality (currenly implemented using Accelerate framework with kvImageHighQualityResampling.)
+* 
 ![example image](https://github.com/jmenter/WebTabber/blob/main/example.png)
