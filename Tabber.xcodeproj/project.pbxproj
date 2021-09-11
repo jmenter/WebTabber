@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6301EB3826ED047D00B9F1C2 /* ScrollEventInterceptorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6301EB3726ED047D00B9F1C2 /* ScrollEventInterceptorView.m */; };
+		6301EB3826ED047D00B9F1C2 /* EventInterceptorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6301EB3726ED047D00B9F1C2 /* EventInterceptorView.m */; };
 		6358C3F52675418700AC7471 /* NSImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358C3F42675418700AC7471 /* NSImage+Extras.m */; };
 		635B59972673FECE0029F8C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 635B59962673FECE0029F8C5 /* AppDelegate.m */; };
 		635B599A2673FECE0029F8C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635B59992673FECE0029F8C5 /* ViewController.m */; };
@@ -15,12 +15,13 @@
 		635B599F2673FED00029F8C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 635B599D2673FED00029F8C5 /* Main.storyboard */; };
 		635B59A22673FED00029F8C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 635B59A12673FED00029F8C5 /* main.m */; };
 		635B59AD26740A770029F8C5 /* WebViewTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 635B59AC26740A770029F8C5 /* WebViewTabController.m */; };
+		635F5A3926ED5D98008A2825 /* ThumnailCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 635F5A3826ED5D98008A2825 /* ThumnailCellView.m */; };
 		638810CC267787A300EDDE86 /* NSView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 638810CB267787A300EDDE86 /* NSView+Extras.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6301EB3626ED047D00B9F1C2 /* ScrollEventInterceptorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollEventInterceptorView.h; sourceTree = "<group>"; };
-		6301EB3726ED047D00B9F1C2 /* ScrollEventInterceptorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollEventInterceptorView.m; sourceTree = "<group>"; };
+		6301EB3626ED047D00B9F1C2 /* EventInterceptorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventInterceptorView.h; sourceTree = "<group>"; };
+		6301EB3726ED047D00B9F1C2 /* EventInterceptorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventInterceptorView.m; sourceTree = "<group>"; };
 		6358C3F32675418700AC7471 /* NSImage+Extras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+Extras.h"; sourceTree = "<group>"; };
 		6358C3F42675418700AC7471 /* NSImage+Extras.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Extras.m"; sourceTree = "<group>"; };
 		635B59922673FECE0029F8C5 /* Tabber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tabber.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,6 +36,8 @@
 		635B59A32673FED00029F8C5 /* Tabber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tabber.entitlements; sourceTree = "<group>"; };
 		635B59AB26740A770029F8C5 /* WebViewTabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewTabController.h; sourceTree = "<group>"; };
 		635B59AC26740A770029F8C5 /* WebViewTabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewTabController.m; sourceTree = "<group>"; };
+		635F5A3726ED5D98008A2825 /* ThumnailCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThumnailCellView.h; sourceTree = "<group>"; };
+		635F5A3826ED5D98008A2825 /* ThumnailCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThumnailCellView.m; sourceTree = "<group>"; };
 		638810CA267787A300EDDE86 /* NSView+Extras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+Extras.h"; sourceTree = "<group>"; };
 		638810CB267787A300EDDE86 /* NSView+Extras.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+Extras.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,8 +76,8 @@
 				635B59962673FECE0029F8C5 /* AppDelegate.m */,
 				635B59982673FECE0029F8C5 /* ViewController.h */,
 				635B59992673FECE0029F8C5 /* ViewController.m */,
-				6301EB3626ED047D00B9F1C2 /* ScrollEventInterceptorView.h */,
-				6301EB3726ED047D00B9F1C2 /* ScrollEventInterceptorView.m */,
+				6301EB3626ED047D00B9F1C2 /* EventInterceptorView.h */,
+				6301EB3726ED047D00B9F1C2 /* EventInterceptorView.m */,
 				635B59AB26740A770029F8C5 /* WebViewTabController.h */,
 				635B59AC26740A770029F8C5 /* WebViewTabController.m */,
 				6358C3F32675418700AC7471 /* NSImage+Extras.h */,
@@ -83,6 +86,8 @@
 				638810CB267787A300EDDE86 /* NSView+Extras.m */,
 				635B599B2673FED00029F8C5 /* Assets.xcassets */,
 				635B599D2673FED00029F8C5 /* Main.storyboard */,
+				635F5A3726ED5D98008A2825 /* ThumnailCellView.h */,
+				635F5A3826ED5D98008A2825 /* ThumnailCellView.m */,
 				635B59A02673FED00029F8C5 /* Info.plist */,
 				635B59A12673FED00029F8C5 /* main.m */,
 				635B59A32673FED00029F8C5 /* Tabber.entitlements */,
@@ -160,9 +165,10 @@
 			files = (
 				635B599A2673FECE0029F8C5 /* ViewController.m in Sources */,
 				635B59AD26740A770029F8C5 /* WebViewTabController.m in Sources */,
+				635F5A3926ED5D98008A2825 /* ThumnailCellView.m in Sources */,
 				638810CC267787A300EDDE86 /* NSView+Extras.m in Sources */,
 				635B59A22673FED00029F8C5 /* main.m in Sources */,
-				6301EB3826ED047D00B9F1C2 /* ScrollEventInterceptorView.m in Sources */,
+				6301EB3826ED047D00B9F1C2 /* EventInterceptorView.m in Sources */,
 				6358C3F52675418700AC7471 /* NSImage+Extras.m in Sources */,
 				635B59972673FECE0029F8C5 /* AppDelegate.m in Sources */,
 			);

@@ -1,20 +1,20 @@
 
-#import "ScrollEventInterceptorView.h"
+#import "EventInterceptorView.h"
 
-@implementation ScrollEventInterceptorView
+@implementation EventInterceptorView
 
 - (void)scrollWheel:(NSEvent *)event;
 {
     if (event.phase == NSEventPhaseEnded || event.momentumPhase == NSEventPhaseEnded) {
-        [self.scrollEventDelegate scrollDidEnd];
+        [self.eventInterceptorDelegate scrollDidEnd];
     }
-    [self.scrollEventDelegate scrollIsHappening];
+    [self.eventInterceptorDelegate scrollIsHappening];
     [self.nextResponder scrollWheel:event];
 }
 
 - (void)keyUp:(NSEvent *)event;
 {
-    [self.scrollEventDelegate scrollDidEnd];
+    [self.eventInterceptorDelegate scrollDidEnd];
     [self.nextResponder keyUp:event];
 }
 

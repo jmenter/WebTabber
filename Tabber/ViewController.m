@@ -1,11 +1,15 @@
 
 #import "ViewController.h"
 #import "WebViewTabController.h"
+#import "ThumnailCellView.h"
 #import "NSView+Extras.h"
 
 @import WebKit;
 
 @interface ViewController() <NSTableViewDelegate, NSTableViewDataSource, WebViewTabControllerDelegate, NSSplitViewDelegate>
+@property (weak) IBOutlet NSView *paneContainerView;
+@property (weak) IBOutlet NSView *listContainerView;
+@property (weak) IBOutlet NSSplitView *splitView;
 @property (weak) IBOutlet NSView *webViewSuperView;
 @property (weak) IBOutlet NSTextField *addressField;
 @property (weak) IBOutlet NSTableView *tableView;
@@ -28,8 +32,11 @@
 
 - (NSSize)optimalThumbnailSize;
 {
-    CGFloat maxWidth = kBaseWidth - 4;
-    return NSMakeSize(maxWidth * 2, (maxWidth / self.webViewSuperView.aspectRatio) * 2);
+    CGFloat targetWidth = self.listContainerView.bounds.size.width - 6;
+    CGFloat widthRatio = targetWidth / self.paneContainerView.bounds.size.width;
+    CGFloat targetImageHeight = self.listContainerView.bounds.size.height * widthRatio;
+
+    return NSMakeSize(targetWidth * 2, targetImageHeight * 2);
 }
 
 - (void)viewDidLayout;
@@ -85,20 +92,23 @@
     return self.tabs.count + 1;
 }
 
-static const CGFloat kBaseWidth = 150;
-
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row;
 {
-    return row == self.tabs.count ? 80 : kBaseWidth / self.webViewSuperView.aspectRatio;
+    return row == self.tabs.count ? 80 : (self.optimalThumbnailSize.height / 2) + 16 + 3 + 3 + 3;
 }
 
-- (nullable id)tableView:(NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row;
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 {
-    if (row == self.tabs.count) {
-        return [NSImage imageNamed:@"add"];
-    }
 
-    return self.tabs[row].lastThumbnailImage;
+    ThumnailCellView *view = [tableView makeViewWithIdentifier:@"cellView" owner:self];
+    if (row == self.tabs.count) {
+        view.myTextField.stringValue = @"";
+        view.myImageView.image = nil;
+        return view;
+    }
+    view.myTextField.stringValue = self.tabs[row].url.absoluteString ?: @"";
+    view.myImageView.image = self.tabs[row].lastThumbnailImage;
+    return view;
 }
 
 #pragma mark - NSTableViewDelegate

@@ -2,10 +2,10 @@
 @import WebKit;
 
 #import "WebViewTabController.h"
-#import "ScrollEventInterceptorView.h"
+#import "EventInterceptorView.h"
 #import "NSImage+Extras.h"
 
-@interface WebViewTabController()<WKNavigationDelegate, ScrollEventDelegate>
+@interface WebViewTabController()<WKNavigationDelegate, EventInterceptorDelegate>
 @property (nonatomic) WKWebView *myWebView;
 @end
 
@@ -16,8 +16,8 @@
     if (!(self = [super init])) { return nil; }
     
     self.myWebView = WKWebView.new;
-    ScrollEventInterceptorView *eeView = [[ScrollEventInterceptorView alloc] initWithFrame:self.myWebView.bounds];
-    eeView.scrollEventDelegate = self;
+    EventInterceptorView *eeView = [[EventInterceptorView alloc] initWithFrame:self.myWebView.bounds];
+    eeView.eventInterceptorDelegate = self;
     eeView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     [self.myWebView addSubview:eeView];
     self.myWebView.navigationDelegate = self;
@@ -89,7 +89,7 @@
     return self.myWebView.URL.absoluteURL;
 }
 
-#pragma mark - ScrollEventDelegate
+#pragma mark - EventInterceptorDelegate
 
 - (void)scrollDidEnd;
 {
