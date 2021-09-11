@@ -1,10 +1,12 @@
 
 @import Foundation;
-@import WebKit;
+
+@class WebViewTabController;
 
 @protocol WebViewTabControllerDelegate <NSObject>
-- (void)tabControllerDidCreateThumbnail:(NSImage *)thumbnail;
-- (void)webViewDidFinishLoading;
+@optional
+- (void)tabController:(WebViewTabController *)controller didCreateThumbnail:(NSImage *)thumbnail;
+- (void)webViewControllerDidFinishLoading:(WebViewTabController *)controller;
 @end
 
 @interface WebViewTabController : NSObject

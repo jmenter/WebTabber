@@ -1,10 +1,11 @@
 
 #import "ViewController.h"
 #import "WebViewTabController.h"
+#import "NSView+Extras.h"
 
 @import WebKit;
 
-@interface ViewController() <NSTableViewDelegate, NSTableViewDataSource, WebViewTabControllerDelegate>
+@interface ViewController() <NSTableViewDelegate, NSTableViewDataSource, WebViewTabControllerDelegate, NSSplitViewDelegate>
 @property (weak) IBOutlet NSView *webViewSuperView;
 @property (weak) IBOutlet NSTextField *addressField;
 @property (weak) IBOutlet NSTableView *tableView;
@@ -19,20 +20,15 @@
     self.tabs = NSMutableArray.new;
 
     [self.tabs addObject:[WebViewTabController.alloc initWithDelegate:self]];
-    [self.webViewSuperView addSubview:self.tabs[0].webView];
+    [self.webViewSuperView addSubview:self.tabs.firstObject.webView];
     self.tabs[self.selectedTab].webView.frame = self.webViewSuperView.bounds;
     self.tabs[self.selectedTab].thumbnailImageSize = self.optimalThumbnailSize;
-
-    [NSTimer scheduledTimerWithTimeInterval:.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [self.tabs[self.selectedTab] requestThumbnail];
-    }];
 }
 
 - (NSSize)optimalThumbnailSize;
 {
     CGFloat maxWidth = kBaseWidth - 4;
-    CGFloat aspectRatio = self.webViewSuperView.bounds.size.width / self.webViewSuperView.bounds.size.height;
-    return NSMakeSize(maxWidth * 2, (maxWidth / aspectRatio) * 2);
+    return NSMakeSize(maxWidth * 2, (maxWidth / self.webViewSuperView.aspectRatio) * 2);
 }
 
 - (void)viewDidLayout;
@@ -74,6 +70,12 @@
         [controller requestThumbnail];
     }
 }
+#pragma mark - NSSplitViewDelegate
+
+- (void)splitViewDidResizeSubviews:(NSNotification *)notification;
+{
+    [self viewDidLayout];
+}
 
 #pragma mark - NSTableViewDataSource
 
@@ -86,8 +88,7 @@ static const CGFloat kBaseWidth = 150;
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row;
 {
-    CGFloat aspectRatio = self.webViewSuperView.bounds.size.width / self.webViewSuperView.bounds.size.height;
-    return kBaseWidth / aspectRatio;
+    return kBaseWidth / self.webViewSuperView.aspectRatio;
 }
 
 - (nullable id)tableView:(NSTableView *)tableView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row;
@@ -103,22 +104,25 @@ static const CGFloat kBaseWidth = 150;
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification;
 {
-    if (self.tableView.selectedRow == self.tabs.count) {
+    BOOL addWasSelected = self.tableView.selectedRow == self.tabs.count;
+    if (addWasSelected) {
         [self.tabs addObject:[WebViewTabController.alloc initWithDelegate:self]];
     }
     [self selectTab:self.tableView.selectedRow];
     self.selectedTabController.thumbnailImageSize = self.optimalThumbnailSize;
-    [self.tableView reloadData];
+    if (addWasSelected) {
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - WebViewTabControllerDelegate
 
-- (void)tabControllerDidCreateThumbnail:(NSImage *)thumbnail;
+- (void)tabController:(WebViewTabController *)controller didCreateThumbnail:(NSImage *)thumbnail;
 {
     [self.tableView reloadData];
 }
 
-- (void)webViewDidFinishLoading;
+- (void)webViewControllerDidFinishLoading:(WebViewTabController *)controller;
 {
     [self.tableView reloadData];
 }
