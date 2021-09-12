@@ -102,8 +102,8 @@
 
     ThumnailCellView *view = [tableView makeViewWithIdentifier:@"cellView" owner:self];
     if (row == self.tabs.count) {
-        view.myTextField.stringValue = @"";
-        view.myImageView.image = nil;
+        view.myTextField.stringValue = @"new tab";
+        view.myImageView.image = [NSImage imageNamed:@"add"];
         return view;
     }
     view.myTextField.stringValue = self.tabs[row].url.absoluteString ?: @"";

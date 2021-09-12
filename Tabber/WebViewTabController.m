@@ -7,6 +7,7 @@
 
 @interface WebViewTabController()<WKNavigationDelegate, EventInterceptorDelegate>
 @property (nonatomic) WKWebView *myWebView;
+@property (nonatomic) BOOL isRequestingThumbnail;
 @end
 
 @implementation WebViewTabController
@@ -49,18 +50,17 @@
 
 - (void)requestThumbnail;
 {
-    static BOOL isRequestingThumbnail = NO;
-    if (isRequestingThumbnail) {
+    if (self.isRequestingThumbnail) {
         return;
     }
-    isRequestingThumbnail = YES;
+    self.isRequestingThumbnail = YES;
     WKSnapshotConfiguration *config = WKSnapshotConfiguration.new;
     config.afterScreenUpdates = NO;
     [self.myWebView takeSnapshotWithConfiguration:config
                                 completionHandler:^(NSImage * _Nullable snapshotImage, NSError * _Nullable error) {
         self.lastThumbnailImage = [snapshotImage resizedTo:self.preferredThumbnailImageSize];
         [self.delegate tabController:self didCreateThumbnail:self.lastThumbnailImage];
-        isRequestingThumbnail = NO;
+        self.isRequestingThumbnail = NO;
     }];
 }
 
